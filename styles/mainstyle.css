@@ -2,9 +2,9 @@
 
 /* Color Palette */
 :root {
-	--div-bg-color: #563aa3; /* main color of the div elements */
-	--bg-color: #0f0d14; /* dark background color */ 
-	--fg-color: #e1d6ff; /* light foreground color */
+	--div-bg-color: #6047a3; /* main color of the div elements */
+	--bg-color: #2f293d; /* dark background color */ 
+	--fg-color: #f0eaff; /* light foreground color */
 	--disable-color: #484451; /* Unsaturated color for disabled elements/fonts */
 }
 
