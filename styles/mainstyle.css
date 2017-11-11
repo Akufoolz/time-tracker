@@ -1,1 +1,54 @@
 /* mainstyle.css */
+
+/* Color Palette */
+:root {
+	--div-bg-color: #563aa3; /* main color of the div elements */
+	--bg-color: #0f0d14; /* dark background color */ 
+	--fg-color: #e1d6ff; /* light foreground color */
+	--disable-color: #484451; /* Unsaturated color for disabled elements/fonts */
+}
+
+/* reset all margins and padding values */
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+	font-family: sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+div {
+	background-color: var(--div-bg-color);
+	color: var(--fg-color);
+	padding: 16px;
+	float: left;
+}
+
+.block {
+	padding: 0px;
+	width: 100%;
+}
+
+.icon-link a, a:link, a:visited, a:focus, a:hover, a:active {
+	color: var(--fg-color);
+	text-decoration:none;
+}
+
+.title {
+	width: 50%;
+}
+
+.col-head {
+	width: 100px;
+}
+
+.table {
+	background-color: var(--bg-color);
+}
+
+.total {
+	float: right;
+}
