@@ -12,12 +12,13 @@
 * {
 margin: 0;
 padding: 0;
+font-size: 18px;
 }
 
 body {
 	font-family: sans-serif;
-	font-size: 18px;
 	font-weight: bold;
+	background-color: var(--disable-color);
 }
 
 div {
@@ -37,12 +38,9 @@ div {
 	text-decoration:none;
 }
 
-.title {
-	width: 50%;
-}
-
 .col-head {
 	width: 100px;
+	text-align: center;
 }
 
 .table {
@@ -54,12 +52,20 @@ div {
 .data-box , .data-row{
 	background-color: var(--bg-color);
 	padding: 0px;
+	font-size: 0;
 }
 
-#text-box {
+.text-box {
 	background-color: var(--disable-color);
 	border-width: 0;
-	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	width: 100px;
+	padding: 16px;
+}
+
+.icon-link {
+	vertical-align:sub;
 }
 
 .total {

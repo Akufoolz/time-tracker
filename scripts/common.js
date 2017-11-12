@@ -17,3 +17,9 @@ function getWindow() {
 	var windowWidth = document.documentElement.clientWidth;
 	return {height: windowHeight, width: windowWidth};
 }
+
+// returns height and width of the body
+function getBody() {
+	var bodyTag = $e("body");
+	return {height: bodyTag.clientHeight, width: bodyTag.clientWidth};
+}
