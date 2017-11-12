@@ -40,12 +40,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 41 - ((15 * winheight(0) + 24) / 48)
+let s:l = 42 - ((25 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-41
-normal! 0
+42
+normal! 020|
 wincmd w
 argglobal
 if bufexists('index.html') | buffer index.html | else | edit index.html | endif
@@ -58,38 +58,16 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 32 - ((31 * winheight(0) + 24) / 48)
+let s:l = 19 - ((18 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-32
-normal! 096|
+19
+normal! 065|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 93 + 96) / 192)
 exe 'vert 2resize ' . ((&columns * 98 + 96) / 192)
-tabedit styles/iconsizing.css
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 24) / 48)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
-tabedit scripts/ui.js
+tabedit scripts/calc.js
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -97,7 +75,10 @@ vsplit
 wincmd w
 wincmd _ | wincmd |
 split
-1wincmd k
+wincmd _ | wincmd |
+split
+2wincmd k
+wincmd w
 wincmd w
 set nosplitbelow
 set nosplitright
@@ -114,12 +95,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 49 - ((40 * winheight(0) + 22) / 44)
+let s:l = 26 - ((24 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-49
-normal! 0
+26
+normal! 044|
 wincmd w
 argglobal
 if bufexists('scripts/common.js') | buffer scripts/common.js | else | edit scripts/common.js | endif
@@ -132,7 +113,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 25 - ((21 * winheight(0) + 11) / 23)
+let s:l = 25 - ((14 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -150,15 +131,33 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 4 - ((3 * winheight(0) + 12) / 24)
+let s:l = 4 - ((1 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 4
 normal! 0
 wincmd w
+argglobal
+if bufexists('scripts/ui.js') | buffer scripts/ui.js | else | edit scripts/ui.js | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 49 - ((1 * winheight(0) + 8) / 16)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+49
+normal! 0
+wincmd w
 wincmd =
-tabnext 1
+tabnext 2
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

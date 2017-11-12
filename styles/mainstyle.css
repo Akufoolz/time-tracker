@@ -38,6 +38,10 @@ div {
 	text-decoration:none;
 }
 
+.title {
+	font-size: 22px;
+}
+
 .col-head {
 	width: 100px;
 	text-align: center;

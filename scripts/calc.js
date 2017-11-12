@@ -1,4 +1,29 @@
 // calc.js
 // functions to calculate data
 
+// converts a time string to hours number
+function timeToHours(time) {
+	var hours = parseInt(time.split(":")[0]);
+	var minutes = parseInt(time.split(":")[1]) / 60;
+	var totalHours = hours + minutes;
+	return totalHours;
+}
 
+// calculate the total hours of the line
+var lineTotal = (startTime, endTime) => timeToHours(endTime) - timeToHours(startTime);
+
+// get data-row and calculate the totals and inject into the hours cell
+function calcDataRows() {
+	var dataRow = $e(".data-row");	
+	var dataCells = dataRow.children;
+	var start = dataCells[1].value;
+	var end = dataCells[2].value;	
+	dataCells[3].value = lineTotal(start, end);
+}
+
+// calculate total hours and inject into div.total 
+function calcTotalHours() {
+	var hoursCells = document.getElementById
+}
+
+calcDataRows();
