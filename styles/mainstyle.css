@@ -47,6 +47,19 @@ div {
 
 .table {
 	background-color: var(--bg-color);
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.data-box , .data-row{
+	background-color: var(--bg-color);
+	padding: 0px;
+}
+
+#text-box {
+	background-color: var(--disable-color);
+	border-width: 0;
+	font-size: 16px;
 }
 
 .total {
