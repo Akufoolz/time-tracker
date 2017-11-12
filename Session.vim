@@ -95,12 +95,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 26 - ((24 * winheight(0) + 22) / 44)
+let s:l = 27 - ((25 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-26
-normal! 044|
+27
+normal! 0
 wincmd w
 argglobal
 if bufexists('scripts/common.js') | buffer scripts/common.js | else | edit scripts/common.js | endif
@@ -113,11 +113,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 25 - ((14 * winheight(0) + 7) / 15)
+let s:l = 5 - ((4 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
+5
 normal! 0
 wincmd w
 argglobal
@@ -131,12 +131,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 4 - ((1 * winheight(0) + 7) / 15)
+let s:l = 15 - ((12 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 0
+15
+normal! 025|
 wincmd w
 argglobal
 if bufexists('scripts/ui.js') | buffer scripts/ui.js | else | edit scripts/ui.js | endif
@@ -149,13 +149,14 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 49 - ((1 * winheight(0) + 8) / 16)
+let s:l = 30 - ((2 * winheight(0) + 8) / 16)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-49
+30
 normal! 0
 wincmd w
+3wincmd w
 wincmd =
 tabnext 2
 if exists('s:wipebuf')

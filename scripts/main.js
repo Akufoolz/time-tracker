@@ -5,4 +5,17 @@
 // Events +
 // ++++++++
 
+// calculate total hours anytime a input cell has focus
+document.body.addEventListener("focusin", function(e) {
+	if(e.target.nodeName == "INPUT") {
+		calcDataRows();
+	}
+}, true);
+
+document.body.addEventListener("focusout", function(e) {
+	if(e.target.nodeName == "INPUT") {
+		calcDataRows();
+	}
+}, true);
+
 window.onresize = resizeTable; 
