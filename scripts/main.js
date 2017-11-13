@@ -12,6 +12,7 @@ document.body.addEventListener("focusin", function(e) {
 	}
 }, true);
 
+// calculate total hours anytime a input cell loses focus
 document.body.addEventListener("focusout", function(e) {
 	if(e.target.nodeName == "INPUT") {
 		calcDataRows();
