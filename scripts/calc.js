@@ -18,7 +18,7 @@ function calcDataRows() {
 	var dataCells = dataRow.children;
 	var start = dataCells[1].value;
 	var end = dataCells[2].value;	
-	dataCells[3].value = lineTotal(start, end);
+	dataCells[3].value = parseFloat(lineTotal(start, end)).toFixed(2);
 }
 
 // calculate total hours and inject into div.total 
