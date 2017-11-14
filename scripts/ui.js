@@ -17,9 +17,11 @@ function getScrollWidth() {
 // set body width to combined width of the input fields
 function setBodyWidth() {
 	var bodyTag = $e("body");
-	var textBox = $e(".text-box");
-	var lineWidth = textBox.clientWidth * 4;
+	var textBox = $e(".col-head");
+	var iconBox = $e(".icon-head");
+	var lineWidth = (textBox.clientWidth * 4) + iconBox.clientWidth;
 	bodyTag.style.width = lineWidth + getScrollWidth().width + "px";
+	console.log(getScrollWidth().width);
 }
 
 // set height to remaining space by subtracting the height of the top divs and bottom div from window height

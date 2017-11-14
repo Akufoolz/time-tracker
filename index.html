@@ -8,16 +8,26 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
+	<!-- TOP BLOCK START -->
 	<div class="top block">
-		<div class="menu"><a class="icon-link" href="#"><i class="material-icons">menu</i></a></div>
+		<div class="menu"><a class="icon-link" href="#" title="Menu"><i class="material-icons">menu</i></a></div>
 		<div class="title">Time Tracker</div>
 	</div>
+	<!-- TOP BLOCK END -->
+
+	<!-- TABLE HEADER BLOCK START -->
 	<div class="table-header block">
-		<div class="col-head"><a class="icon-link" href="#">Type</a></div>
-		<div class="col-head"><a class="icon-link" href="#">Start</a></div>
-		<div class="col-head"><a class="icon-link" href="#">End</a></div>
-		<div class="col-head"><a class="icon-link" href="#">Hours</a></div>
+		<div class="col-head"><a href="#">Type</a></div>
+		<div class="col-head"><a href="#">Start</a></div>
+		<div class="col-head"><a href="#">End</a></div>
+		<div class="col-head"><a href="#">Hours</a></div>
+		<div class="col-head icon-head">
+			<i class="material-icons md-18">view_agenda</i>
+		</div>
 	</div>
+	<!-- TABLE HEADER BLOCK END -->
+
+	<!-- TABLE SECTION START -->
 	<div class="table block">
 		<div class="data-box">
 			<div class="data-row">
@@ -25,13 +35,31 @@
 				<input class="text-box" type="text" name="">
 				<input class="text-box" type="text" name="">
 				<input class="text-box" type="text" name="" readonly>
+				<div class="text-box icon-box">
+					<a class="icon-link" href="#" title="Remove Row">
+						<i class="material-icons md-18">remove_circle</i>
+					</a>
+				</div>
+			</div>
+			<div class="text-box icon-box add-box">
+				<a class="icon-link" href="#" title="Add New Row">
+					<i class="material-icons md-18 dark-icon">add_circle</i>
+				</a>
 			</div>
 		</div>
 	</div>
+	<!-- TABLE SECTION END -->
+
+	<!-- BOTTOM BLOCK START -->
 	<div class="bottom block">
-		<div class="type-drop">Type <a class="icon-link" href="#"><i class="material-icons md-18">arrow_drop_down_circle</i></a></div>
+		<div class="type-drop">Type <a class="icon-link" href="#">
+			<i class="material-icons md-18">arrow_drop_down_circle</i>
+		</a></div>
 		<div class="total">Total: </div>
 	</div>
+	<!-- BOTTOM BLOCK START -->
+
+	<!-- SCRIPTS -->
 	<script src="/scripts/common.js"></script>
 	<script src="/scripts/ui.js"></script>
 	<script src="/scripts/calc.js"></script>

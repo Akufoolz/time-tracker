@@ -10,9 +10,10 @@
 
 /* reset all margins and padding values */
 * {
-margin: 0;
-padding: 0;
-font-size: 18px;
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: var(--fg-color);
 }
 
 body {
@@ -23,7 +24,6 @@ body {
 
 div {
 	background-color: var(--div-bg-color);
-	color: var(--fg-color);
 	padding: 16px;
 	float: left;
 }
@@ -47,6 +47,16 @@ div {
 	text-align: center;
 }
 
+.icon-head {
+	width: 50px !important;
+}
+
+.icon-box {
+	float:right !important;
+	width: 50px !important;
+	height: 21px !important;
+}
+
 .table {
 	background-color: var(--bg-color);
 	overflow-x: hidden;
@@ -68,8 +78,20 @@ div {
 	padding: 16px;
 }
 
+.add-box {
+	background-color:transparent;
+}
+
+.dark-icon {
+	color: var(--disable-color);
+}
+
+.purple-icon {
+	color: var(--div-bg-color);
+}
+
 .icon-link {
-	vertical-align:sub;
+	vertical-align:  sub;
 }
 
 .total {
