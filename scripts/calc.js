@@ -5,7 +5,24 @@
 function timeToHours(time) {
 	var hours = parseInt(time.split(":")[0]);
 	var minutes = parseInt(time.split(":")[1]) / 60;
-	var totalHours = hours + minutes;
+	var amPM = time.split(" ")[1].toUpperCase();
+	if (amPM == "AM") {
+		if (hours == 12) {
+			var totalHours = minutes;
+		}
+		else {
+			var totalHours = hours + minutes;
+		}
+	}
+	else if (amPM == "PM") {
+		if (hours == 12) {
+			var totalHours = hours + minutes;
+		}
+		else {
+			var totalHours = (hours+12) + minutes;
+		}
+	}
+
 	return totalHours;
 }
 
