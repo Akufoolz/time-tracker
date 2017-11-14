@@ -24,7 +24,8 @@ document.body.addEventListener("focusout", function(e) {
 // deletes row when icon is clicked, and recalculates totalg
 document.body.addEventListener("click", function(e) {
 	if (e.target.textContent == "remove_circle"){
-		deleteRow(e.target);
+		//deleteRow(e.target);
+		checkRows(e.target);
 		calcDataRows();
 		calcTotalHours();
 	}

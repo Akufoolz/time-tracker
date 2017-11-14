@@ -52,5 +52,25 @@ function deleteRow(icon) {
 	targetRow.remove();
 }
 
+// clear the row
+function clearRow(icon) {
+	var targetRow = icon.closest(".data-row");
+	var targetCells = targetRow.children;
+	for (i = 0; targetCells.length; i++) {
+		targetCells[i].value = "";
+	}
+}
+
+// check if there is only one row, if true clear row instead of delete
+function checkRows(eventTarget) {
+	var allRows = $e(".data-box").children;
+		if (allRows.length <= 2) {
+			clearRow(eventTarget);
+		}
+		else {
+			deleteRow(eventTarget);
+		}
+}
+
 setBodyWidth();
 setTable();
