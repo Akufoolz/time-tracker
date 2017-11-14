@@ -32,10 +32,12 @@ var lineTotal = (startTime, endTime) => timeToHours(endTime) - timeToHours(start
 // get data-row and calculate the totals and inject into the hours cell
 function calcDataRows() {
 	var dataRow = $e(".data-row");	
-	var dataCells = dataRow.children;
-	var start = dataCells[1].value;
-	var end = dataCells[2].value;	
-	dataCells[3].value = parseFloat(lineTotal(start, end)).toFixed(2);
+	if (dataRow == !null) {
+		var dataCells = dataRow.children;
+		var start = dataCells[1].value;
+		var end = dataCells[2].value;	
+		dataCells[3].value = parseFloat(lineTotal(start, end)).toFixed(2);
+	}
 }
 
 // calculate total hours and inject into div.total 
@@ -45,7 +47,6 @@ function calcTotalHours() {
 	for (i = 0; i < rows.length; i++) {
 		total = total + parseFloat(rows[i].children[3].value);	
 	}
-	console.log($e(".total").textContent);
 	$e(".total").textContent = ("Total Hours: " + total);
 }
 

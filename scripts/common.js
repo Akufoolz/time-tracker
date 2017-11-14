@@ -6,8 +6,8 @@
 // ++++++++++++++++++
 
 // create a function to quickly select elements
-function $e (elem) {
-	return document.querySelector(elem);
+function $e (element) {
+	return document.querySelector(element);
 }
 
 // sets height and width of the window

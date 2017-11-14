@@ -21,4 +21,14 @@ document.body.addEventListener("focusout", function(e) {
 	}
 }, true);
 
+// deletes row when icon is clicked, and recalculates totals
+document.body.addEventListener("click", function(e) {
+	if (e.target.textContent == "remove_circle"){
+		deleteRow(e.target);
+		calcDataRows();
+		calcTotalHours();
+	}
+}, true);
+
+// adjusts UI elements when the window is resized
 window.onresize = resizeTable; 

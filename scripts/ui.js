@@ -1,5 +1,5 @@
 // ui.jsj
-// functions use to set UI properties
+// functions use to setup the UI
 
 // get scrollbar width
 function getScrollWidth() {
@@ -21,7 +21,6 @@ function setBodyWidth() {
 	var iconBox = $e(".icon-head");
 	var lineWidth = (textBox.clientWidth * 4) + iconBox.clientWidth;
 	bodyTag.style.width = lineWidth + getScrollWidth().width + "px";
-	console.log(getScrollWidth().width);
 }
 
 // set height to remaining space by subtracting the height of the top divs and bottom div from window height
@@ -44,7 +43,13 @@ function setTable() {
 function resizeTable() {
 	getWindow();
 	setTable();
-	console.log("resized!");
+}
+
+// delete the row when the remove row icon is clicked 
+function deleteRow(icon) {
+	var targetRow = icon.closest(".data-row");
+	console.log(targetRow);
+	targetRow.remove();
 }
 
 setBodyWidth();
