@@ -7,7 +7,7 @@
 
 // calculate total hours anytime a input cell has focus
 document.body.addEventListener("focusin", function(e) {
-	if(e.target.nodeName == "INPUT") {
+	if(e.target.className === "text-box") {
 		calcDataRows();
 		calcTotalHours();
 	}
@@ -15,13 +15,13 @@ document.body.addEventListener("focusin", function(e) {
 
 // calculate total hours anytime a input cell loses focus
 document.body.addEventListener("focusout", function(e) {
-	if(e.target.nodeName == "INPUT") {
+	if(e.target.className === "text-box") {
 		calcDataRows();
 		calcTotalHours();
 	}
 }, true);
 
-// deletes row when icon is clicked, and recalculates totals
+// deletes row when icon is clicked, and recalculates totalg
 document.body.addEventListener("click", function(e) {
 	if (e.target.textContent == "remove_circle"){
 		deleteRow(e.target);
