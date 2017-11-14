@@ -23,7 +23,14 @@ function calcDataRows() {
 
 // calculate total hours and inject into div.total 
 function calcTotalHours() {
-	var hoursCells = document.getElementById
+	var rows = document.getElementsByClassName("data-row");
+	var total = 0;
+	for (i = 0; i < rows.length; i++) {
+		total = total + parseFloat(rows[i].children[3].value);	
+	}
+	console.log($e(".total").textContent);
+	$e(".total").textContent = ("Total Hours: " + total);
 }
 
+calcTotalHours();
 calcDataRows();

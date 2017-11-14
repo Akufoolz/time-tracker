@@ -9,6 +9,7 @@
 document.body.addEventListener("focusin", function(e) {
 	if(e.target.nodeName == "INPUT") {
 		calcDataRows();
+		calcTotalHours();
 	}
 }, true);
 
@@ -16,6 +17,7 @@ document.body.addEventListener("focusin", function(e) {
 document.body.addEventListener("focusout", function(e) {
 	if(e.target.nodeName == "INPUT") {
 		calcDataRows();
+		calcTotalHours();
 	}
 }, true);
 
