@@ -21,11 +21,20 @@ document.body.addEventListener("focusout", function(e) {
 	}
 }, true);
 
-// deletes row when icon is clicked, and recalculates totalg
+// deletes row when icon is clicked, and recalculates totals
 document.body.addEventListener("click", function(e) {
 	if (e.target.textContent == "remove_circle"){
 		//deleteRow(e.target);
 		checkRows(e.target);
+		calcDataRows();
+		calcTotalHours();
+	}
+}, true);
+
+// adds new row when icon is clicked, and recalculates totals
+document.body.addEventListener("click", function(e) {
+	if (e.target.textContent == "add_circle"){
+		addRow(e.target);
 		calcDataRows();
 		calcTotalHours();
 	}
