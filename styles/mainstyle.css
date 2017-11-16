@@ -54,7 +54,7 @@ div {
 .icon-box {
 	float:right !important;
 	width: 50px !important;
-	height: 21px !important;
+	line-height: 17px;
 }
 
 .table {
@@ -92,6 +92,12 @@ div {
 
 .icon-link {
 	vertical-align:  sub;
+}
+
+.type-drop {
+}
+
+.type-list {
 }
 
 .total {
