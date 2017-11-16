@@ -1,7 +1,7 @@
 # time-tracker
 
 ## To Do:
-* Fix row hour calculation
+* ~~Fix row hour calculation~~
 * Implement date field
 * Sort data with type menu
 * Persist data in user session
