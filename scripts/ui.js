@@ -45,41 +45,7 @@ function resizeTable() {
 	setTable();
 }
 
-// add row when the add row icon is clicked
-/*
-function addRow(target) {
-	var targetBox = target.closest(".data-box");
-	var newRow[0] = document.createElement("div");
-
-	newRow[0].class = "data-row";
-	newRow[1] = document.createElement("input");
-	newRow[1].class = "text-box";
-	newRow[1].type = "text";
-	newRow[2] = document.createElement("input");
-	newRow[2].class = "text-box";
-	newRow[2].type = "text";
-	newRow[2].readOnly = true; 
-	newRow[3] = document.createElement("div");
-	newRow[3].class = "text-box icon-box";
-	newRow[3][0] = document.createElement("a");
-	newRow[3][0].class = "icon-link"; 
-	newRow[3][0].href = "#";
-	newRow[3][0].title = "Add New Row";
-	newRow[3][1] = document.createElement("i");
-	newRow[3][1].class = "material-icons md-18";
-	
-	targetBox.appendChild(newRow[0]);
-
-	var targetRow = target.closest(".data-row");
-
-	for (i = 0; i < 3; i++) {
-		targetRow.appendChild(newRow[1]);
-	}
-
-	targetBox.appendChild(newRow);
-}
-*/
-
+// Adds a new row to the div.data-box 
 function addRow() {
 	var targetBox = $e(".data-box");
 	var dataRow = $e(".data-row").cloneNode(true);

@@ -5,6 +5,12 @@
 // Events +
 // ++++++++
 
+// calculate total hours at load
+document.body.addEventListener("load", function(e) {
+	calcDataRows();
+	calcTotalHours();
+}, true);
+
 // calculate total hours anytime a input cell has focus
 document.body.addEventListener("focusin", function(e) {
 	if(e.target.className === "text-box") {
@@ -18,6 +24,7 @@ document.body.addEventListener("focusout", function(e) {
 	if(e.target.className === "text-box") {
 		calcDataRows();
 		calcTotalHours();
+		checkTime(e.target);
 	}
 }, true);
 

@@ -32,7 +32,7 @@ var lineTotal = (startTime, endTime) => timeToHours(endTime) - timeToHours(start
 // get data-row and calculate the totals and inject into the hours cell
 function calcDataRows() {
 	var allRows = $e(".data-box").children;
-	for (i = 0; i < allRows.length - 1; i++) {
+	for (i = 0; i < allRows.length; i++) {
 		var dataRow = allRows[i];	
 		var dataCells = dataRow.children;
 		var start = dataCells[1].value;
@@ -56,5 +56,5 @@ function calcTotalHours() {
 	$e(".total").textContent = ("Total Hours: " + total);
 }
 
-calcTotalHours();
-calcDataRows();
+//calcTotalHours();
+//calcDataRows();
