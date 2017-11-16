@@ -54,7 +54,6 @@ div {
 .icon-box {
 	float:right !important;
 	width: 50px !important;
-	line-height: 17px;
 }
 
 .table {
@@ -64,13 +63,13 @@ div {
 }
 
 .data-box , .data-row{
-	background-color: var(--bg-color);
+	background-color: var(--disable-color);
 	padding: 0px;
 	font-size: 0;
 }
 
 .text-box {
-	background-color: var(--disable-color);
+	background-color: transparent;
 	border-width: 0;
 	font-weight: bold;
 	text-align: center;
@@ -98,6 +97,8 @@ div {
 }
 
 .type-list {
+	color: var(--div-bg-color);
+	padding-right: 4px;
 }
 
 .total {
