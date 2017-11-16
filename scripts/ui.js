@@ -88,15 +88,13 @@ function addRow() {
 	targetCells[0].value = "";
 	targetCells[1].value = "";
 	targetCells[2].value = "";
-	targetCells[3].value = "";
-	console.log(targetCells[0]);
+	targetCells[3].value = 0;
 	targetBox.appendChild(dataRow);
 }
 
 // delete the row when the remove row icon is clicked 
 function deleteRow(target) {
 	var targetRow = target.closest(".data-row");
-	console.log(targetRow);
 	targetRow.remove();
 }
 
@@ -104,9 +102,10 @@ function deleteRow(target) {
 function clearRow(target) {
 	var targetRow = target.closest(".data-row");
 	var targetCells = targetRow.children;
-	for (i = 0; targetCells.length; i++) {
-		targetCells[i].value = "";
-	}
+	targetCells[0].value = "";
+	targetCells[1].value = "";
+	targetCells[2].value = "";
+	targetCells[3].value = 0;
 }
 
 // check if there is only one row, if true clear row instead of delete
