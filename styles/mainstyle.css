@@ -36,6 +36,18 @@ div {
 .date {
   float: right; }
 
+select {
+  background-color: #6047a3;
+  border: transparent;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  appearance: none; }
+
+#type-list, #date-list {
+  padding-right: 8px;
+  font-weight: bold; }
+
 .col-head {
   width: 100px;
   text-align: center; }
@@ -76,10 +88,6 @@ div {
 
 .icon-link {
   vertical-align: sub; }
-
-#type-list, #date-list {
-  color: #6047a3;
-  padding-right: 8px; }
 
 .total {
   float: right; }
