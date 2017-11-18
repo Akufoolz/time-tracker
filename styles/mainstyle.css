@@ -1,108 +1,87 @@
-/* mainstyle.css */
-
+/* mainstyle.scss */
 /* Color Palette */
-:root {
-	--div-bg-color: #6047a3; /* main color of the div elements */
-	--bg-color: #2f293d; /* dark background color */ 
-	--fg-color: #f0eaff; /* light foreground color */
-	--disable-color: #484451; /* Unsaturated color for disabled elements/fonts */
-}
-
+/* main color */
+/* dark background colori */
+/* light foreground color */
+/* highlight color */
 /* reset all margins and padding values */
 * {
-	margin: 0;
-	padding: 0;
-	font-size: 18px;
-	color: var(--fg-color);
-}
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: #f0eaff; }
 
 body {
-	font-family: sans-serif;
-	font-weight: bold;
-	background-color: var(--disable-color);
-}
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: #2f293d; }
 
 div {
-	background-color: var(--div-bg-color);
-	padding: 16px;
-	float: left;
-}
+  background-color: #6047a3;
+  padding: 16px;
+  float: left; }
 
 .block {
-	padding: 0px;
-	width: 100%;
-}
+  padding: 0px;
+  width: 100%; }
 
 .icon-link a, a:link, a:visited, a:focus, a:hover, a:active {
-	color: var(--fg-color);
-	text-decoration:none;
-}
+  color: #f0eaff;
+  text-decoration: none; }
 
 .title {
-	text-align: center;
-	font-size: 22px;
-}
+  text-align: center;
+  font-size: 22px; }
 
 .date {
-	float: right;
-}
+  float: right; }
 
 .col-head {
-	width: 100px;
-	text-align: center;
-}
+  width: 100px;
+  text-align: center; }
 
 .icon-head {
-	width: 50px !important;
-}
+  width: 50px !important; }
 
 .icon-box {
-	float:right !important;
-	width: 50px !important;
-}
+  float: right !important;
+  width: 50px !important; }
 
 .table {
-	background-color: var(--bg-color);
-	overflow-x: hidden;
-	overflow-y: scroll;
-}
+  background-color: #2f293d;
+  overflow-x: hidden;
+  overflow-y: scroll; }
 
-.data-box , .data-row{
-	background-color: var(--disable-color);
-	padding: 0px;
-	font-size: 0;
-}
+.data-box, .data-row {
+  background-color: #484451;
+  padding: 0px;
+  font-size: 0; }
 
 .text-box {
-	background-color: transparent;
-	border-width: 0;
-	font-weight: bold;
-	text-align: center;
-	width: 100px;
-	padding: 16px;
-}
+  background-color: transparent;
+  border-width: 0;
+  font-weight: bold;
+  text-align: center;
+  width: 100px;
+  padding: 16px; }
 
 .add-box {
-	background-color:transparent;
-}
+  background-color: transparent; }
 
 .dark-icon {
-	color: var(--disable-color);
-}
+  color: #484451; }
 
 .purple-icon {
-	color: var(--div-bg-color);
-}
+  color: #6047a3; }
 
 .icon-link {
-	vertical-align:  sub;
-}
+  vertical-align: sub; }
 
 #type-list, #date-list {
-	color: var(--div-bg-color);
-	padding-right: 8px;
-}
+  color: #6047a3;
+  padding-right: 8px; }
 
 .total {
-	float: right;
-}
+  float: right; }
+
+/*# sourceMappingURL=mainstyle.css.map */

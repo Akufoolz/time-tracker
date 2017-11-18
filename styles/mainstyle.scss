@@ -1,0 +1,106 @@
+/* mainstyle.scss */
+
+/* Color Palette */
+$mainColor: #6047a3; /* main color */
+$bgColor: #2f293d; /* dark background colori */
+$fgColor: #f0eaff; /* light foreground color */
+$hlColor: #484451; /* highlight color */
+
+/* reset all margins and padding values */
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	color: $fgColor;
+}
+
+body {
+	font-family: sans-serif;
+	font-weight: bold;
+	background-color: $bgColor;
+}
+
+div {
+	background-color: $mainColor;
+	padding: 16px;
+	float: left;
+}
+
+.block {
+	padding: 0px;
+	width: 100%;
+}
+
+.icon-link a, a:link, a:visited, a:focus, a:hover, a:active {
+	color: $fgColor;
+	text-decoration:none;
+}
+
+.title {
+	text-align: center;
+	font-size: 22px;
+}
+
+.date {
+	float: right;
+}
+
+.col-head {
+	width: 100px;
+	text-align: center;
+}
+
+.icon-head {
+	width: 50px !important;
+}
+
+.icon-box {
+	float:right !important;
+	width: 50px !important;
+}
+
+.table {
+	background-color: $bgColor;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.data-box , .data-row{
+	background-color: $hlColor;
+	padding: 0px;
+	font-size: 0;
+}
+
+.text-box {
+	background-color: transparent;
+	border-width: 0;
+	font-weight: bold;
+	text-align: center;
+	width: 100px;
+	padding: 16px;
+}
+
+.add-box {
+	background-color:transparent;
+}
+
+.dark-icon {
+	color: $hlColor;
+}
+
+.purple-icon {
+	color: $mainColor;
+}
+
+.icon-link {
+	vertical-align:  sub;
+}
+
+#type-list, #date-list {
+	color: $mainColor;
+	padding-right: 8px;
+}
+
+.total {
+	float: right;
+}
