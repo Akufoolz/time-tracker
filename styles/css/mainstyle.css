@@ -36,17 +36,21 @@ div {
 .date {
   float: right; }
 
-select {
-  background-color: #6047a3;
+#type-list, #date-list {
+  background-color: transparent;
   border: transparent;
   -moz-appearance: none;
   -webkit-appearance: none;
   -o-appearance: none;
-  appearance: none; }
+  appearance: none;
+  font-weight: bold;
+  padding-right: 24px; }
 
-#type-list, #date-list {
-  padding-right: 8px;
-  font-weight: bold; }
+.dropdown-icon {
+  float: right;
+  margin-left: -18px;
+  margin-top: 3px;
+  pointer-events: none; }
 
 .col-head {
   width: 100px;

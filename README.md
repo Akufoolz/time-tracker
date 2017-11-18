@@ -2,7 +2,7 @@
 
 ## To Do:
 * ~~Fix row hour calculation~~
-* Implement date field
+* ~~Implement date field~~
 * Sort data with type menu
 * Persist data in user session
 * Implement saving / loading from JSON file
