@@ -23,3 +23,9 @@ function getBody() {
 	var bodyTag = $e("body");
 	return {height: bodyTag.clientHeight, width: bodyTag.clientWidth};
 }
+
+// returns the current date as a string
+function getCurrentDate() {
+	var today = new Date();
+	return today.toDateString();
+}

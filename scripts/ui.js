@@ -85,5 +85,27 @@ function checkRows(eventTarget) {
 		}
 }
 
+// set the date list to the current date
+function setCurrentDate() {
+	var dateList = $e("#date-list");	
+	var today = document.createElement("option");
+	today.value = getCurrentDate();
+	today.textContent = getCurrentDate();
+	dateList.appendChild(today);
+}
+
+// set the width of div.title to the available width between menu and date
+function setTitleDiv() {
+	var titleDiv = $e(".title");
+	var menuDiv = $e(".menu");
+	var dateDiv = $e(".date");
+	var padding = window.getComputedStyle(titleDiv, null).getPropertyValue("padding-left");
+	var targetWidth = ((getBody().width) - (parseInt(padding.slice(0, -2) * 2) + menuDiv.offsetWidth + dateDiv.offsetWidth));
+	titleDiv.style.width = targetWidth + "px";
+	console.log(targetWidth);
+}
+
 setBodyWidth();
 setTable();
+setCurrentDate();
+setTitleDiv();
