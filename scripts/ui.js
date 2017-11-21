@@ -107,7 +107,7 @@ function setTitleDiv() {
 // check for unique types and create array to populate type-list 
 function setTypeList() {
 	var allRows = $e(".data-box").children;
-	var typeList = []; 
+	var typeList = ["All Types"]; 
 	for (a = 0; a < allRows.length; a++) {
 		var typeCell = allRows[a].children[0];
 		if (typeList.indexOf(typeCell.value) === -1 && typeCell.value !== "") {
