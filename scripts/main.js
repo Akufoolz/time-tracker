@@ -7,24 +7,24 @@
 
 // calculate total hours at load
 document.body.addEventListener("load", function(e) {
-	calcDataRows();
-	calcTotalHours();
+	setUI();
+	refreshUI();
+	refreshCalc();
 }, true);
 
 // calculate total hours anytime a input cell has focus
 document.body.addEventListener("focusin", function(e) {
 	if(e.target.className === "text-box") {
-		calcDataRows();
-		calcTotalHours();
+		refreshUI();
+		refreshCalc();
 	}
 }, true);
 
 // calculate total hours anytime a input cell loses focus
 document.body.addEventListener("focusout", function(e) {
 	if(e.target.className === "text-box") {
-		calcDataRows();
-		calcTotalHours();
-		checkTime(e.target);
+		refreshUI();
+		refreshCalc();
 	}
 }, true);
 
@@ -33,8 +33,8 @@ document.body.addEventListener("click", function(e) {
 	if (e.target.textContent == "remove_circle"){
 		//deleteRow(e.target);
 		checkRows(e.target);
-		calcDataRows();
-		calcTotalHours();
+		refreshUI();
+		refreshCalc();
 	}
 }, true);
 
@@ -42,8 +42,8 @@ document.body.addEventListener("click", function(e) {
 document.body.addEventListener("click", function(e) {
 	if (e.target.textContent == "add_circle"){
 		addRow(e.target);
-		calcDataRows();
-		calcTotalHours();
+		refreshUI();
+		refreshCalc();
 	}
 }, true);
 

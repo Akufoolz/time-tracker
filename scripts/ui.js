@@ -102,10 +102,50 @@ function setTitleDiv() {
 	var padding = window.getComputedStyle(titleDiv, null).getPropertyValue("padding-left");
 	var targetWidth = ((getBody().width) - (parseInt(padding.slice(0, -2) * 2) + menuDiv.offsetWidth + dateDiv.offsetWidth));
 	titleDiv.style.width = targetWidth + "px";
-	console.log(targetWidth);
 }
 
-setBodyWidth();
-setTable();
-setCurrentDate();
-setTitleDiv();
+// check for unique types and create array to populate type-list 
+function setTypeList() {
+	var allRows = $e(".data-box").children;
+	var typeList = []; 
+	for (a = 0; a < allRows.length; a++) {
+		var typeCell = allRows[a].children[0];
+		if (typeList.indexOf(typeCell.value) === -1 && typeCell.value !== "") {
+			typeList.push(typeCell.value);
+		}
+	}
+	return typeList;
+}
+
+// create options within type-list using setTypeList array
+function populateTypes() {
+	var typeSelect = $e("#type-list");
+	var typeElements = [];
+	var currentOptions = typeSelect.children;
+	var optionValues = {};
+	for (i = 0; i < currentOptions.length; i++) {
+		optionValues[currentOptions[i].value] = true;
+	}
+	for (i = 0; i < setTypeList().length; i++) {
+		if (!optionValues[setTypeList()[i]]) {
+			var element = document.createElement("option");
+			element.value = setTypeList()[i];
+			element.textContent = setTypeList()[i];
+			typeSelect.appendChild(element);
+		}
+	}
+}
+
+// function to call setup ui functions
+function setUI() {
+	setBodyWidth();
+	setTable();
+	setCurrentDate();
+	setTitleDiv();
+}
+
+// UI functions which need to be reloaded
+function refreshUI() {
+	setTypeList();
+	populateTypes();
+}

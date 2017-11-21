@@ -56,5 +56,8 @@ function calcTotalHours() {
 	$e(".total").textContent = ("Total Hours: " + total);
 }
 
-//calcTotalHours();
-//calcDataRows();
+// Calc functions which need to be refreshed
+function refreshCalc() {
+calcTotalHours();
+calcDataRows();
+}
