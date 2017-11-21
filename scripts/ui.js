@@ -136,6 +136,23 @@ function populateTypes() {
 	}
 }
 
+// sort by type by hiding rows that do not match
+function sortRows() {
+	var typeSelect = $e("#type-list");
+	var allRows = $e(".data-box").children;
+	for (i = 0; i < allRows.length; i++) {
+		if (typeSelect.value === "All Types") {
+			allRows[i].style.display = "initial";
+		}
+		else if (allRows[i].children[0].value === typeSelect.value) {
+			allRows[i].style.display = "initial";
+		}
+		else {
+			allRows[i].style.display = "none";
+		}
+	}
+}
+
 // function to call setup ui functions
 function setUI() {
 	setBodyWidth();
@@ -148,4 +165,5 @@ function setUI() {
 function refreshUI() {
 	setTypeList();
 	populateTypes();
+	sortRows();
 }

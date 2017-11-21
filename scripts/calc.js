@@ -51,7 +51,9 @@ function calcTotalHours() {
 	var rows = document.getElementsByClassName("data-row");
 	var total = 0;
 	for (i = 0; i < rows.length; i++) {
-		total = total + parseFloat(rows[i].children[3].value);	
+		if (rows[i].style.display !== "none") { 
+			total = total + parseFloat(rows[i].children[3].value);	
+		}
 	}
 	$e(".total").textContent = ("Total Hours: " + total);
 }

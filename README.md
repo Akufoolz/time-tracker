@@ -3,8 +3,8 @@
 ## To Do:
 * ~~Fix row hour calculation~~
 * ~~Implement date field~~
-* Sort data with type menu
-* Persist data in user session
+* ~~Sort data with type menu~~
+* Persist data
 * Implement saving / loading from JSON file
 
 ## Future Features:
