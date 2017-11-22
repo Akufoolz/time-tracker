@@ -42,6 +42,8 @@ div {
 }
 
 .date {
+	width: 200px;
+	text-align: right;
 	float: right;
 }
 
@@ -57,9 +59,9 @@ div {
 }
 
 .dropdown-icon {
-	float: right;
-	margin-left: -18px;
-	margin-top: 3px;
+	position:relative;
+	margin-left: -24px;
+	vertical-align: sub;
 	pointer-events: none;
 
 }

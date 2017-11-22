@@ -34,6 +34,8 @@ div {
   font-size: 22px; }
 
 .date {
+  width: 200px;
+  text-align: right;
   float: right; }
 
 #type-list, #date-list {
@@ -47,9 +49,9 @@ div {
   padding-right: 24px; }
 
 .dropdown-icon {
-  float: right;
-  margin-left: -18px;
-  margin-top: 3px;
+  position: relative;
+  margin-left: -24px;
+  vertical-align: sub;
   pointer-events: none; }
 
 .col-head {
