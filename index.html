@@ -17,7 +17,7 @@
 		</div>
 		<div class="title">Time Tracker</div>
 		<div class="date">
-			<select id="date-list" name="dates">
+			<select id="date-list" class="list" name="dates">
 			</select>
 			<i class="material-icons md-18 dropdown-icon">arrow_drop_down_circle</i>
 		</div>
@@ -40,7 +40,8 @@
 	<div class="table block">
 		<div class="data-box">
 			<div class="data-row">
-				<input class="text-box" type="text">
+				<select class="list type-box text-box">
+				</select>
 				<input class="text-box" type="text">
 				<input class="text-box" type="text">
 				<input class="text-box" type="text" readonly>
@@ -62,7 +63,8 @@
 	<!-- BOTTOM BLOCK START -->
 	<div class="bottom block">
 		<div class="type-drop">
-			<select id="type-list" name="types" onclick="refreshUI(), refreshCalc()" onchange="refreshUI(), refreshCalc()">
+			<select id="type-list" class="list" name="types" onclick="refreshUI(), refreshCalc()" onchange="refreshUI(), refreshCalc()">
+				<option value="All Types">All Types</option>
 			</select>
 			<i class="material-icons md-18 dropdown-icon">arrow_drop_down_circle</i>
 		</div>

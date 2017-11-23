@@ -104,6 +104,7 @@ function setTitleDiv() {
 	titleDiv.style.width = targetWidth + "px";
 }
 
+/*
 // check for unique types and create array to populate type-list 
 function setTypeList() {
 	var allRows = $e(".data-box").children;
@@ -135,6 +136,7 @@ function populateTypes() {
 		}
 	}
 }
+*/
 
 // sort by type by hiding rows that do not match
 function sortRows() {
@@ -153,6 +155,87 @@ function sortRows() {
 	}
 }
 
+// UI object to make variables available globally and organize functionality
+var UI = (function() {
+	
+	// varibles for static elements
+	var typeSelect = $e("#type-list");
+	
+	// object containing all the types
+	var typeList = {
+		Cases: true,
+		PC: true,
+		Triage: true,
+		Meeting: true,
+		Training: true
+	}
+	
+	
+
+	function populateTypes() {		
+		var targetSelects = document.getElementsByClassName("type-box");
+		var allSelectElements = [];
+
+		for (i = 0; i < targetSelects.length; i++) {
+			allSelectElements[i] = targetSelects[i];
+		}
+
+		allSelectElements.push(typeSelect);
+
+		for (a = 0; a < allSelectElements.length; a++) {
+			var options = allSelectElements[a].children;
+			
+			for (var b in typeList) {
+				var optionValues = {};
+				for (i = 0; i < options.length; i++) {
+					optionValues[options[i].value] = true;
+				}
+				function createOption() {
+					var newOption = document.createElement("option");
+					var typeValue = b;
+					newOption.value = typeValue; 
+					newOption.textContent = typeValue; 
+					allSelectElements[a].appendChild(newOption);
+				}
+				if (!optionValues[b]) {
+					if (allSelectElements[a].id === "type-list") {
+						if (options.length < Object.keys(typeList).length + 1) {
+							createOption();
+						}
+					}
+					else {
+						if (options.length < Object.keys(typeList).length) {
+							createOption();		
+						}
+					}
+				}
+				for (var c in optionValues) {
+					if (!typeList[c] && c !== "All Types"){
+						var target = "option[value=" + c + "]";
+						$e(target).remove();
+						//delete typeList[c];
+					}
+				}
+			}
+		}
+	}
+
+	// functions which are exposed globally
+	return {
+		testOut: function(){
+			populateTypes();
+		},
+
+		addType: function(type) {
+		typeList[type] = true;
+		},
+
+		removeType: function(type) {
+		delete typeList[type];
+		}
+	};
+})();
+
 // function to call setup ui functions
 function setUI() {
 	setBodyWidth();
@@ -163,7 +246,6 @@ function setUI() {
 
 // UI functions which need to be reloaded
 function refreshUI() {
-	setTypeList();
-	populateTypes();
+	UI.testOut();
 	sortRows();
 }

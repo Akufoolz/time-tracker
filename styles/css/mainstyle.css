@@ -38,7 +38,7 @@ div {
   text-align: right;
   float: right; }
 
-#type-list, #date-list {
+.list {
   background-color: transparent;
   border: transparent;
   -moz-appearance: none;
@@ -47,6 +47,9 @@ div {
   appearance: none;
   font-weight: bold;
   padding-right: 24px; }
+
+.type-box {
+  width: 132px !important; }
 
 .dropdown-icon {
   position: relative;
