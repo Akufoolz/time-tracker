@@ -219,6 +219,10 @@ var UI = (function() {
 			else if (!typeList[type]) {
 				alert(type + " type does not exists.");
 			}
+		},
+
+		getTypeList: function() {
+			return typeList;
 		}
 	};
 })();
@@ -247,3 +251,26 @@ function refreshUI() {
 	UI.popTypes();
 	sortRows();
 }
+
+// funtion to save all data prior to unload
+function saveAllData() {
+
+	$set("types", JSON.stringify(UI.getTypeList()));
+
+	var allRowObjects = [];
+	var allRows = $e(".data-box").children
+
+	$set("rowCount", allRows.length);
+
+	for (i = 0; i < allRows.length; i++) {
+		allRowObjects[i] = {};
+		var kids = allRows[i].children;
+		for (j = 0; j < kids.length - 2; j++) {
+			allRowObjects[i]["value" + j] = kids[j].value;
+		}
+	}
+
+	$set("rowObjects", JSON.stringify(allRowObjects));
+}
+
+// function to load existing localStorage data on page load

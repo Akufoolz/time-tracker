@@ -10,6 +10,16 @@ function $e (element) {
 	return document.querySelector(element);
 }
 
+// create a helper function to quickly set localStorage items
+function $set(name, value) {
+	return localStorage.setItem(name, value);
+}
+
+// create a helper function to quickly get localStorage items
+function $get(name, value) {
+	return localStorage.getItem(name);
+}
+
 // sets height and width of the window
 function getWindow() {
 	// get client height and width
