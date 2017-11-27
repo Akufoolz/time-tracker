@@ -124,3 +124,27 @@ div {
 .total {
 	float: right;
 }
+
+.menu-window {
+	display: none;
+	position: absolute;
+	width: 256px;
+	top: 40px;
+	left: 40px;
+	border: 2px solid $fgColor;
+}
+
+.menu-input {
+	background-color: $hlColor;
+	padding: 0;
+}
+
+.menu-icon {
+	float: right;
+	padding: 16px;
+}
+
+.close-icon {
+	float: right;
+	padding: 8px 8px 0px 0px;
+}

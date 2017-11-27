@@ -31,7 +31,6 @@
 		<div class="col-head">End</div>
 		<div class="col-head">Hours</div>
 		<div class="col-head icon-head">
-			<i class="material-icons md-18">view_agenda</i>
 		</div>
 	</div>
 	<!-- TABLE HEADER BLOCK END -->
@@ -63,7 +62,7 @@
 	<!-- BOTTOM BLOCK START -->
 	<div class="bottom block">
 		<div class="type-drop">
-			<select id="type-list" class="list" name="types" onclick="refreshUI(), refreshCalc()" onchange="refreshUI(), refreshCalc()">
+			<select id="type-list" class="list" name="types">
 				<option value="All Types">All Types</option>
 			</select>
 			<i class="material-icons md-18 dropdown-icon">arrow_drop_down_circle</i>
@@ -71,6 +70,30 @@
 		<div class="total">Total: </div>
 	</div>
 	<!-- BOTTOM BLOCK START -->
+
+	<!-- MENU BLOCK START -->
+	<div class="menu-window block">
+		<a class="icon-link" href="#">
+			<i class="material-icons close-icon">close</i>
+		</a>
+		<div class="">Add New Type:</div>
+		<div class="block menu-input">
+			<input id="add-type" class="text-box" type="text">
+			<a class="icon-link" href="#">
+				<i class="material-icons md-18 menu-icon">add_circle</i>
+			</a>
+		</div>
+		<div class="">Remove Type:</div>
+		<div class="block menu-input">
+			<input id="remove-type" class="text-box" list="all-types" />
+			<datalist id="all-types">
+			</datalist>
+			<a class="icon-link" href="#">
+				<i class="material-icons md-18 menu-icon">remove_circle</i>
+			</a>
+		</div>
+	</div>
+	<!-- MENU BLOCK END -->
 
 	<!-- SCRIPTS -->
 	<script src="./scripts/common.js"></script>

@@ -51,7 +51,6 @@ function addRow() {
 	var dataRow = $e(".data-row").cloneNode(true);
 	var targetCells = dataRow.children;
 	var length = targetCells.length;
-	targetCells[0].value = "";
 	targetCells[1].value = "";
 	targetCells[2].value = "";
 	targetCells[3].value = 0;
@@ -104,40 +103,6 @@ function setTitleDiv() {
 	titleDiv.style.width = targetWidth + "px";
 }
 
-/*
-// check for unique types and create array to populate type-list 
-function setTypeList() {
-	var allRows = $e(".data-box").children;
-	var typeList = ["All Types"]; 
-	for (a = 0; a < allRows.length; a++) {
-		var typeCell = allRows[a].children[0];
-		if (typeList.indexOf(typeCell.value) === -1 && typeCell.value !== "") {
-			typeList.push(typeCell.value);
-		}
-	}
-	return typeList;
-}
-
-// create options within type-list using setTypeList array
-function populateTypes() {
-	var typeSelect = $e("#type-list");
-	var typeElements = [];
-	var currentOptions = typeSelect.children;
-	var optionValues = {};
-	for (i = 0; i < currentOptions.length; i++) {
-		optionValues[currentOptions[i].value] = true;
-	}
-	for (i = 0; i < setTypeList().length; i++) {
-		if (!optionValues[setTypeList()[i]]) {
-			var element = document.createElement("option");
-			element.value = setTypeList()[i];
-			element.textContent = setTypeList()[i];
-			typeSelect.appendChild(element);
-		}
-	}
-}
-*/
-
 // sort by type by hiding rows that do not match
 function sortRows() {
 	var typeSelect = $e("#type-list");
@@ -160,6 +125,7 @@ var UI = (function() {
 	
 	// varibles for static elements
 	var typeSelect = $e("#type-list");
+	var allRows = $e(".data-box").children;
 	
 	// object containing all the types
 	var typeList = {
@@ -222,19 +188,51 @@ var UI = (function() {
 
 	// functions which are exposed globally
 	return {
-		testOut: function(){
+		popTypes: function(){
 			populateTypes();
 		},
 
 		addType: function(type) {
-		typeList[type] = true;
+			if (!typeList[type]) {
+				typeList[type] = true;
+				alert(type + " type has been added.");
+			}
+			else if (typeList[type]) {
+				alert(type + " type already exists.");
+			}
 		},
 
 		removeType: function(type) {
-		delete typeList[type];
+			if (typeList[type]) {
+				var allRowTypes = [];
+				for (i = 0; i < allRows.length; i++) {
+					allRowTypes[i] = allRows[i].children[0].value;
+				}
+				if (allRowTypes.indexOf(type) === -1) {
+					delete typeList[type];
+					alert(type + " type has been removed.");
+				}
+				else {
+					alert("Cannot remove type with existing rows.");
+				}
+			}
+			else if (!typeList[type]) {
+				alert(type + " type does not exists.");
+			}
 		}
 	};
 })();
+
+// functions to show and hide the menu window
+function toggleMenuWindow() {
+	var menuDisplay = $e(".menu-window");
+	if (menuDisplay.style.display === "block") {
+		menuDisplay.style.display = "none";
+	}
+	else {
+		menuDisplay.style.display = "block";
+	}
+}
 
 // function to call setup ui functions
 function setUI() {
@@ -246,6 +244,6 @@ function setUI() {
 
 // UI functions which need to be reloaded
 function refreshUI() {
-	UI.testOut();
+	UI.popTypes();
 	sortRows();
 }

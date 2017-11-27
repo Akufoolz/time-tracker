@@ -101,4 +101,24 @@ div {
 .total {
   float: right; }
 
+.menu-window {
+  display: none;
+  position: absolute;
+  width: 256px;
+  top: 40px;
+  left: 40px;
+  border: 2px solid #f0eaff; }
+
+.menu-input {
+  background-color: #484451;
+  padding: 0; }
+
+.menu-icon {
+  float: right;
+  padding: 16px; }
+
+.close-icon {
+  float: right;
+  padding: 8px 8px 0px 0px; }
+
 /*# sourceMappingURL=mainstyle.css.map */
