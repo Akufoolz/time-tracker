@@ -96,6 +96,11 @@ div {
 	font-size: 0;
 }
 
+select option {
+	background-color: $bgColor !important;
+	color: $fgColor !important;
+}
+
 .text-box {
 	background-color: transparent;
 	border-width: 0;
