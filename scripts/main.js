@@ -5,11 +5,17 @@
 // Events +
 // ++++++++
 
-// calculate total hours at load
-document.body.addEventListener("load", function(e) {
+// event to run functions onload
+window.addEventListener("load", function(e) {
 	setUI();
 	refreshUI();
+	loadAllData();
 	refreshCalc();
+}, true);
+
+// event run functions before unload
+window.addEventListener("beforeunload", function(e) {
+	saveAllData(); 
 }, true);
 
 // event to run refresh functions anytime a input cell has focus
@@ -72,6 +78,8 @@ document.body.addEventListener("click", function(e) {
 		toggleMenuWindow();	
 	}
 }, true);
+
+
 
 // adjusts UI elements when the window is resized
 window.onresize = resizeTable; 

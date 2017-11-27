@@ -177,7 +177,7 @@ var UI = (function() {
 				}
 				for (var c in optionValues) {
 					if (!typeList[c] && c !== "All Types"){
-						var target = "option[value=" + c + "]";
+						var target = "option[value='" + c + "']";
 						$e(target).remove();
 						//delete typeList[c];
 					}
@@ -223,6 +223,10 @@ var UI = (function() {
 
 		getTypeList: function() {
 			return typeList;
+		},
+
+		setTypeList: function(object) {
+			typeList = object;
 		}
 	};
 })();
@@ -271,6 +275,39 @@ function saveAllData() {
 	}
 
 	$set("rowObjects", JSON.stringify(allRowObjects));
+	console.log("DATA SAVED!");
 }
 
 // function to load existing localStorage data on page load
+
+function loadAllData() {
+	if ($get("types")) {
+		var savedTypes = JSON.parse($get("types"));
+		UI.setTypeList(savedTypes);
+		refreshUI();
+	}
+	if ($get("rowObjects")) {
+		var savedRows = JSON.parse($get("rowObjects"));
+		var allRows = $e(".data-box").children;
+		var rowDiff = parseInt($get("rowCount")) - (allRows.length);
+		for (i = 0; i < rowDiff; i++) {
+			addRow();
+		}
+		var allRows = $e(".data-box").children;
+		for (i = 0; i < allRows.length; i++) {
+			var kids = allRows[i].children;
+			var savedRowsValues = Object.values(savedRows[i]);
+			for (j = 0; j < kids.length - 2; j++) {
+				var counter = 0;
+				kids[j].value = savedRowsValues[j];
+				if (counter <= 2) {
+					counter++;
+				}
+				else {
+					counter = 0;
+				}
+			}
+		}
+	}
+	console.log("DATA LOADED!");
+}

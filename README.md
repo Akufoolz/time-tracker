@@ -4,7 +4,7 @@
 * ~~Fix row hour calculation~~
 * ~~Implement date field~~
 * ~~Sort data with type menu~~
-* Persist data
+* ~~Persist data locally~~
 * Implement saving / loading from JSON file
 
 ## Future Features:
