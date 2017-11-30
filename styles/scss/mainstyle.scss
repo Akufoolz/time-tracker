@@ -142,6 +142,9 @@ select option {
 .menu-input {
 	background-color: $hlColor;
 	padding: 0;
+	.text-box {
+		width: 255px - (32px + 50px);
+	}
 }
 
 .menu-icon {

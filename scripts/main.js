@@ -40,46 +40,43 @@ document.body.addEventListener("click", function(e) {
 	refreshCalc();
 }, true);
 
-// event to remove rows when remove icon is clicked (or clear the row if no others exist)
-// if the remove icon is located inside the menu window it removes the type in the input
+// event to handle clicks to material-icons
 document.body.addEventListener("click", function(e) {
-	if (e.target.classList.contains("material-icons") && e.target.textContent === "remove_circle") {
-		if (e.target.classList.contains("menu-icon")) {
-			var targetValue = $e("#remove-type").value;
-			UI.removeType(targetValue);
-			$e("#remove-type").value = "";
+	if (e.target.classList.contains("material-icons")) {
+		// remove circle logic
+		if (e.target.textContent === "remove_circle") {
+			if (e.target.classList.contains("menu-icon")) {
+				var targetValue = $e("#remove-type").value;
+				UI.removeType(targetValue);
+				$e("#remove-type").value = "";
+			}
+			else {
+				checkRows(e.target);
+			}
 		}
-		else {
-			checkRows(e.target);
+		// add circle icon logic
+		else if (e.target.textContent === "add_circle") {
+			if (e.target.classList.contains("menu-icon")) {
+				var targetValue = $e("#add-type").value;
+				UI.addType(targetValue);
+				$e("#add-type").value = "";
+			}
+			else {
+				addRow();
+				refreshCalc();
+				refreshUI();
+			}
+		}
+		// menu and close icon logic
+		else if (e.target.textContent === "menu" || e.target.textContent === "close") {
+			toggleMenuWindow();	
+		}
+		// save icon logic
+		else if (e.target.textContent === "save") {
+			UI.saveDataToFile();
 		}
 	}
 }, true);
-
-// event to add a rows when the add icon is clicked
-// if the add icon is within the menu window it adds a type from the input
-document.body.addEventListener("click", function(e) {
-	if (e.target.classList.contains("material-icons") && e.target.textContent === "add_circle") {
-		if (e.target.classList.contains("menu-icon")) {
-			var targetValue = $e("#add-type").value;
-			UI.addType(targetValue);
-			$e("#add-type").value = "";
-		}
-		else {
-			addRow();
-			refreshCalc();
-			refreshUI();
-		}
-	}
-}, true);
-
-// event to toggle the menu window when the menu icon is clicked
-document.body.addEventListener("click", function(e) {
-	if (e.target.className === "material-icons" && e.target.textContent === "menu" || e.target.textContent === "close") {
-		toggleMenuWindow();	
-	}
-}, true);
-
-
 
 // adjusts UI elements when the window is resized
 window.onresize = resizeTable; 

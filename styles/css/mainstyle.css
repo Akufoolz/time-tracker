@@ -116,6 +116,8 @@ select option {
 .menu-input {
   background-color: #484451;
   padding: 0; }
+  .menu-input .text-box {
+    width: 173px; }
 
 .menu-icon {
   float: right;

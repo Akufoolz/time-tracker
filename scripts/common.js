@@ -52,3 +52,8 @@ function addCharToString (str, cha, index) {
 	var newString = str1 + cha + str2;
 	return newString;
 }
+
+// function to remove element of event target
+function removeClickedElement(e) {
+	e.target.remove();
+}

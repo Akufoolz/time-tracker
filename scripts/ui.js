@@ -224,7 +224,9 @@ var UI = (function() {
 		},
 
 		getTypeList: function() {
-			return typeList;
+			var typeListObject = { "types": [] };
+			typeListObject.types.push(typeList);
+			return typeListObject;
 		},
 
 		setTypeList: function(object) {
@@ -265,6 +267,24 @@ var UI = (function() {
 					}
 				}
 			}
+		},
+
+		// function to save current data to file
+		saveDataToFile: function() {
+			var saveData = $get("date") + "," + $get("types") + "," +  $get("rowObjects");
+			var saveDataBlob = new Blob([saveData], {type:"application/json"});
+			var saveDataURL = window.URL.createObjectURL(saveDataBlob);
+			var dataFileName = $e("#save-file").value + ".json";
+
+			var downloadLink = document.createElement("a");
+			downloadLink.download = dataFileName;
+			downloadLink.textContent = "Download File";
+			downloadLink.href = saveDataURL;
+			downloadLink.onclick = removeClickedElement;
+			downloadLink.style.display = "none";
+			document.body.appendChild(downloadLink);
+
+			downloadLink.click();
 		}
 	};
 })();
@@ -285,17 +305,24 @@ function saveAllData() {
 
 	$set("types", JSON.stringify(UI.getTypeList()));
 
-	var allRowObjects = [];
+	var selectedDate = $e("#date-list");
+	var dateObject = { "date": selectedDate.options[selectedDate.selectedIndex].text};	
+	$set("date", JSON.stringify(dateObject));
+
+	var allRowObjects = { rows: [] };
 	var allRows = $e(".data-box").children
 
 	$set("rowCount", allRows.length);
 
 	for (i = 0; i < allRows.length; i++) {
-		allRowObjects[i] = {};
+		newRowObject = {};
 		var kids = allRows[i].children;
-		for (j = 0; j < kids.length - 2; j++) {
-			allRowObjects[i]["value" + j] = kids[j].value;
+		var cellNames = ["type", "start", "end", "total"];
+		newRowObject["id"] = allRows[i].id;
+		for (j = 0; j < kids.length - 1; j++) {
+			newRowObject[cellNames[j]] = kids[j].value;
 		}
+		allRowObjects.rows.push(newRowObject);
 	}
 
 	$set("rowObjects", JSON.stringify(allRowObjects));
@@ -307,7 +334,7 @@ function saveAllData() {
 function loadAllData() {
 	if ($get("types")) {
 		var savedTypes = JSON.parse($get("types"));
-		UI.setTypeList(savedTypes);
+		UI.setTypeList(savedTypes.types[0]);
 		refreshUI();
 	}
 	if ($get("rowObjects")) {
@@ -320,11 +347,11 @@ function loadAllData() {
 		var allRows = $e(".data-box").children;
 		for (i = 0; i < allRows.length; i++) {
 			var kids = allRows[i].children;
-			var savedRowsValues = Object.values(savedRows[i]);
+			var savedRowsValues = Object.values(savedRows.rows[i]);
+			var counter = 1;
 			for (j = 0; j < kids.length - 2; j++) {
-				var counter = 0;
-				kids[j].value = savedRowsValues[j];
-				if (counter <= 2) {
+				kids[j].value = savedRowsValues[counter];
+				if (counter <= 3) {
 					counter++;
 				}
 				else {
