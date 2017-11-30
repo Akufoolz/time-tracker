@@ -3,27 +3,37 @@
 
 // converts a time string to hours number
 function timeToHours(time) {
-	var hours = parseInt(time.split(":")[0]);
-	var minutes = parseInt(time.split(":")[1]) / 60;
-	var amPM = time.split(" ")[1].toUpperCase();
-	if (amPM == "AM") {
-		if (hours == 12) {
-			var totalHours = minutes;
+	try {
+		var hours = parseInt(time.split(":")[0]);
+		var minutes = parseInt(time.split(":")[1]) / 60;
+		var amPM = time.split(" ")[1].toUpperCase();
+		if (amPM == "AM") {
+			if (hours == 12) {
+				var totalHours = minutes;
+			}
+			else {
+				var totalHours = hours + minutes;
+			}
 		}
-		else {
-			var totalHours = hours + minutes;
+		else if (amPM == "PM") {
+			if (hours == 12) {
+				var totalHours = hours + minutes;
+			}
+			else {
+				var totalHours = (hours+12) + minutes;
+			}
+		}
+	
+		return totalHours;
+	}
+	catch(err) {
+		console.log(err);	
+	}
+	finally {
+		if (!totalHours) {
+			var totalHours = "Error";
 		}
 	}
-	else if (amPM == "PM") {
-		if (hours == 12) {
-			var totalHours = hours + minutes;
-		}
-		else {
-			var totalHours = (hours+12) + minutes;
-		}
-	}
-
-	return totalHours;
 }
 
 // calculate the total hours of the line
