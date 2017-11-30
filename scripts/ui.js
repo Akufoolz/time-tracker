@@ -48,9 +48,11 @@ function resizeTable() {
 // Adds a new row to the div.data-box 
 function addRow() {
 	var targetBox = $e(".data-box");
-	var dataRow = $e(".data-row").cloneNode(true);
+	var boxRows = $e(".data-box").children;
+	var dataRow = boxRows[(boxRows.length - 1)].cloneNode(true);
 	var targetCells = dataRow.children;
-	var length = targetCells.length;
+	var newId = "row" + (parseInt(dataRow.id.slice(3)) + 1);
+	dataRow.id = newId;
 	targetCells[1].value = "";
 	targetCells[2].value = "";
 	targetCells[3].value = 0;
@@ -227,6 +229,42 @@ var UI = (function() {
 
 		setTypeList: function(object) {
 			typeList = object;
+		},
+
+		// function to check start and end input values for space between minutes and am/pm
+		// adds a space to the value if it does not exist
+		setTimeSpace: function() {
+			for (i = 0; i < allRows.length; i++) {
+				var rowValues = allRows[i].children;
+				var startValue = rowValues[1].value;
+				var endValue = rowValues[2].value;
+				var startRes = checkChar(startValue, " ");
+				var endRes  = checkChar(endValue, " ");
+
+				// logic for start time value
+				if (startValue.length === 6) {
+					if (startRes === -1) {
+						document.getElementById("row" + i).children[1].value = addCharToString(startValue, " ", 4);
+					}
+				}
+				else if (startValue.length === 7) {
+					if (startRes === -1) {
+						document.getElementById("row" + i).children[1].value = addCharToString(startValue, " ", 5);
+					}
+				}
+
+				// logic for end time value
+				if (endValue.length === 6) {
+					if (endRes === -1) {
+						document.getElementById("row" + i).children[2].value = addCharToString(endValue, " ", 4);
+					}
+				}
+				else if (endValue.length === 7) {
+					if (endRes === -1) {
+						document.getElementById("row" + i).children[2].value = addCharToString(endValue, " ", 5);
+					}
+				}
+			}
 		}
 	};
 })();
@@ -240,20 +278,6 @@ function toggleMenuWindow() {
 	else {
 		menuDisplay.style.display = "block";
 	}
-}
-
-// function to call setup ui functions
-function setUI() {
-	setBodyWidth();
-	setTable();
-	setCurrentDate();
-	setTitleDiv();
-}
-
-// UI functions which need to be reloaded
-function refreshUI() {
-	UI.popTypes();
-	sortRows();
 }
 
 // funtion to save all data prior to unload
@@ -310,4 +334,21 @@ function loadAllData() {
 		}
 	}
 	console.log("DATA LOADED!");
+}
+
+
+
+// function to call setup ui functions
+function setUI() {
+	setBodyWidth();
+	setTable();
+	setCurrentDate();
+	setTitleDiv();
+}
+
+// UI functions which need to be reloaded
+function refreshUI() {
+	UI.setTimeSpace();
+	UI.popTypes();
+	sortRows();
 }

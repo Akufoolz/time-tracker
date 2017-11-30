@@ -39,3 +39,16 @@ function getCurrentDate() {
 	var today = new Date();
 	return today.toDateString();
 }
+
+// function that checkes a string for a specific character
+function checkChar (str, cha) {
+	return str.indexOf(cha);
+}
+
+// function at adds a character to a string at a defined location and returns the new string
+function addCharToString (str, cha, index) {
+	var str1 = str.slice(0, index);
+	var str2 = str.slice(index, str.length);
+	var newString = str1 + cha + str2;
+	return newString;
+}
