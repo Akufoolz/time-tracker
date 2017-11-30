@@ -5,7 +5,7 @@
 * ~~Implement date field~~
 * ~~Sort data with type menu~~
 * ~~Persist data locally~~
-* Implement saving / loading from JSON file
+* ~~Implement saving~~ / loading from JSON file
 
 ## Future Features:
 * Implement user accounts
