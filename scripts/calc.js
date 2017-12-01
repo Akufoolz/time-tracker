@@ -62,7 +62,9 @@ function calcTotalHours() {
 	var total = 0;
 	for (i = 0; i < rows.length; i++) {
 		if (rows[i].style.display !== "none") { 
-			if (isNaN(parseFloat(rows[i].children[3].value)) {
+			if (rows[i].children[3].value === "NaN") {
+			}
+			else {
 				total = total + parseFloat(rows[i].children[3].value);
 			}
 		}
